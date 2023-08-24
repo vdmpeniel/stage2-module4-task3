@@ -8,8 +8,7 @@ import com.mjc.stage2.tokenizer.impl.TokenizerImpl;
 
 public class WordParser extends AbstractTextParser{
 
-    private static final String WORD_REGEX = "\\S"; //""[\\w!=?()\\.':]";
-
+    private static final String WORD_REGEX = "\\S";
 
     @Override
     public void parse(AbstractTextComponent abstractTextComponent, String string) {
