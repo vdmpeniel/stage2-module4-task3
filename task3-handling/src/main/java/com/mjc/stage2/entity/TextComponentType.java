@@ -1,7 +1,7 @@
 package com.mjc.stage2.entity;
 
 public enum TextComponentType {
-    SENTENCE("."),
+    SENTENCE(" "),
     WORD(" "),
     SYMBOL("");
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class WordParser extends AbstractTextParser{
-    private static final String WORD_REGEX = "([\\w!=?().':]+)";
+    private static final String WORD_REGEX = "[\\w!=?()\\.':]+";
 
     public WordParser(){}
     public WordParser(AbstractTextParser nextParser){
