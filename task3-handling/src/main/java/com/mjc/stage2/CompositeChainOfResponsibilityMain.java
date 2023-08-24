@@ -28,7 +28,7 @@ public class CompositeChainOfResponsibilityMain {
                     .setParser(new WordParser())
                     .setParser(new LexemeParser())
                     .build();
-            AbstractTextComponent component = new TextComponent(TextComponentType.WORD);
+            AbstractTextComponent component = new TextComponent(TextComponentType.SENTENCE);
             parser.parse(component, text);
 
             System.out.println(component.operation());
