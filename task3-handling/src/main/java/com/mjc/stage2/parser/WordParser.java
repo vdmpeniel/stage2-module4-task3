@@ -12,6 +12,7 @@ import java.util.Objects;
 public class WordParser extends AbstractTextParser{
     private static final String WORD_REGEX = "([\\w!=?().':]+)";
 
+    public WordParser(){}
     public WordParser(AbstractTextParser nextParser){
         super.setNextParser(nextParser);
     }
@@ -20,7 +21,6 @@ public class WordParser extends AbstractTextParser{
     public void parse(AbstractTextComponent abstractTextComponent, String string) {
         TokenizerImpl.getMatches(WORD_REGEX, string)
             .stream()
-            .filter(str -> Objects.nonNull(str) && !str.trim().isEmpty() && !str.trim().isBlank())
             .forEach(part -> {
                 AbstractTextComponent inner = new TextComponent(TextComponentType.SYMBOL);
                 this.nextParser.parse(inner, part);

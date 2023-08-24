@@ -10,15 +10,12 @@ import com.mjc.stage2.warehouse.RectangleWarehouse;
 public class RectangleObserver implements Observer {
     @Override
     public void handleEvent(RectangleEvent event) {
-        System.out.println("Observing from RectangleObserver");
+        Rectangle rectangle = event.getSource();
         RectangleWarehouse warehouse = RectangleWarehouse.getInstance();
-        RectangleRepository repository = RectangleRepository.getInstance();
-
-        Rectangle rectangle = repository.getRectangle(event.getSource().getId());
-        RectangleValues values = warehouse.get(event.getSource().getId());
-
-        values.setSquare(rectangle.getSideA() * rectangle.getSideB());
-        values.setPerimeter((rectangle.getSideA() + rectangle.getSideB()) * 2);
+        warehouse.put(rectangle.getId(), new RectangleValues(
+            rectangle.getSideA() * rectangle.getSideB(),
+            (rectangle.getSideA() + rectangle.getSideB()) * 2
+        ));
     }
 
 }

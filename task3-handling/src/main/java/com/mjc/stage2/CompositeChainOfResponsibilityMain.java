@@ -5,6 +5,8 @@ import com.mjc.stage2.entity.TextComponent;
 import com.mjc.stage2.entity.TextComponentType;
 import com.mjc.stage2.parser.AbstractTextParser;
 import com.mjc.stage2.parser.ChainParserBuilder;
+import com.mjc.stage2.parser.LexemeParser;
+import com.mjc.stage2.parser.WordParser;
 import com.mjc.stage2.reader.DataReader;
 import com.mjc.stage2.reader.impl.DataReaderImpl;
 import com.mjc.stage2.validator.FileValidator;
@@ -22,7 +24,10 @@ public class CompositeChainOfResponsibilityMain {
             System.out.println("Starting Text Parser");
             String text = readTextData();
 
-            AbstractTextParser parser = new ChainParserBuilder().build();
+            AbstractTextParser parser = new ChainParserBuilder()
+                    .setParser(new WordParser())
+                    .setParser(new LexemeParser())
+                    .build();
             AbstractTextComponent component = new TextComponent(TextComponentType.WORD);
             parser.parse(component, text);
 

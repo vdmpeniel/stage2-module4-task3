@@ -15,7 +15,7 @@ public class Rectangle implements Observable {
     private double sideA;
     private double sideB;
 
-    // Write your code here!
+
     public Rectangle(int id, double sideA, double sideB) {
         this.id = id;
         this.sideA = sideA;
@@ -50,18 +50,18 @@ public class Rectangle implements Observable {
 
 
     @Override
-    public void addObserver(Observer o) {
-        observerList.add(o);
+    public void addObserver(Observer observer) {
+        observerList.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer o) {
-        observerList.remove(o);
+    public void removeObserver(Observer observer) {
+        observerList.remove(observer);
     }
 
     @Override
     public void notifyObserver() {
         RectangleEvent event = new RectangleEvent(this);
-        observerList.stream().forEach(observer -> observer.handleEvent(event));
+        observerList.forEach(observer -> observer.handleEvent(event));
     }
 }
