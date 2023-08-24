@@ -6,7 +6,7 @@ import com.mjc.stage2.entity.TextComponentType;
 import com.mjc.stage2.tokenizer.impl.TokenizerImpl;
 
 public class LexemeParser extends AbstractTextParser{
-    private static final String LEXEME_REGEX = "([\\w!=?()\\.,':]+)";
+    private static final String LEXEME_REGEX = "([\\w!=?()\\.\\-,':]+)";
 
     public LexemeParser(){}
     public LexemeParser(AbstractTextParser nextParser){
