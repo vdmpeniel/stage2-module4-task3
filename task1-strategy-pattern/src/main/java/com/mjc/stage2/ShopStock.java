@@ -18,35 +18,4 @@ public class ShopStock {
             .filter(filteringStrategy::filter)
             .collect(Collectors.toList());
     }
-
-
-    public static void main(String[] args) {
-
-        List<Product> productList = List.of(
-                Product.builder()
-                        .manufacture("Apple")
-                        .name("iphone")
-                        .price(120)
-                        .build(),
-                Product.builder()
-                        .manufacture("Apple")
-                        .name("Mac Book")
-                        .price(1800)
-                        .build(),
-                Product.builder()
-                        .manufacture("Dell")
-                        .name("alienware")
-                        .price(1800)
-                        .build(),
-                Product.builder()
-                        .manufacture("LENOVO")
-                        .name("thinkpad")
-                        .price(500)
-                        .build()
-
-        );
-        ShopStock shopStock = new ShopStock(productList);
-        System.out.println(shopStock.executeFilteringStrategy(new ManufactureFilteringStrategy("Apple")));
-        System.out.println(shopStock.executeFilteringStrategy(new MaxPriceFilteringStrategy(1800)));
-    }
 }
