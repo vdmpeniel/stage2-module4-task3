@@ -2,7 +2,6 @@ package com.mjc.stage2.entity;
 
 public abstract class AbstractTextComponent {
     protected TextComponentType componentType;
-    private int size;
 
     public AbstractTextComponent(TextComponentType componentType) {
         this.componentType = componentType;

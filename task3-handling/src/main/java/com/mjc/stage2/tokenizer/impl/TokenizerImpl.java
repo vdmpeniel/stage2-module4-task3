@@ -8,6 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TokenizerImpl implements Tokenizer {
+    private TokenizerImpl(){}
+
     public static List<String> getMatches(String regex, String string) {
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
         final Matcher matcher = pattern.matcher(string);
@@ -23,7 +25,4 @@ public class TokenizerImpl implements Tokenizer {
         return List.of(string.split(regex));
     }
 
-    public static void print(List<String> results){
-        results.forEach(System.out::println);
-    }
 }
