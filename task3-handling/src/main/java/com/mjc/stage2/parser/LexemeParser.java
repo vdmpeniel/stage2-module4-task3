@@ -1,9 +1,22 @@
 package com.mjc.stage2.parser;
 
-public class LexemeParser {
-    private static final String LEXEME_REGEX = "\\s+";
-    private static final String WORD_REGEX = "\\w[\\w!=?():]+";
+import com.mjc.stage2.entity.AbstractTextComponent;
+import com.mjc.stage2.entity.SymbolLeaf;
+import com.mjc.stage2.entity.TextComponentType;
+import com.mjc.stage2.tokenizer.impl.TokenizerImpl;
 
-    // Write your code here!
+import java.util.List;
+
+public class LexemeParser extends AbstractTextParser{
+    private static final String LEXEME_REGEX = "[\\w!=?()':]";
+
+
+    @Override
+    public void parse(AbstractTextComponent abstractTextComponent, String string) {
+        TokenizerImpl.getMatches(LEXEME_REGEX, string)
+        .forEach(part -> {
+            abstractTextComponent.add(new SymbolLeaf(TextComponentType.SYMBOL, part.charAt(0)));
+        });
+    }
 
 }
