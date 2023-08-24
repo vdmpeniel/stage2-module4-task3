@@ -25,8 +25,9 @@ public class CompositeChainOfResponsibilityMain {
             String text = readTextData();
 
             AbstractTextParser parser = new ChainParserBuilder()
-                    .setParser(new WordParser())
+
                     .setParser(new LexemeParser())
+                    .setParser(new WordParser())
                     .build();
             AbstractTextComponent component = new TextComponent(TextComponentType.SENTENCE);
             parser.parse(component, text);
